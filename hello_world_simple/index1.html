@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue JS Simple First App</title>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-on:input="changeTitle">
+            
+            <h1 v-once>{{title}}</h1>  
+            <br />
+            <p>  
+              {{sayHello()}} - <a v-bind:href="link" target="_blank">Link to Google</a>
+            </p>
+
+            <hr>
+            <p v-html="finishedLink">
+            </p>
+          </div>
+
+          <script>
+              new Vue({
+                    el: '#app',
+                    data: {
+                        title: 'Hello World! ',
+                        heading : 'Pranav Zarekar Visit here',
+                        link: 'http://www.google.com',
+                        finishedLink : '<a href="http://www.google.com">Google</a>'
+                    },
+                    methods:{
+                        changeTitle : function(event){
+                            this.title = event.target.value;
+                        },
+                        sayHello : function(){
+                            return this.heading;
+                        }
+                    }
+                });
+          </script>
+    </body>
+</html>
